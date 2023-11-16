@@ -1,6 +1,4 @@
-# Base de code du projet P6 - Parcours Front-end
+## Description
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+This project was initiated as part of a software developer training program, with a strong focus on mastering JavaScript React.
+The development process starts by forking a designated repository. 
