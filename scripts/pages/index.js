@@ -1,4 +1,4 @@
-async function getPhotographers() {
+    async function getPhotographers() {
         // get photographers data from json file
         const response = await fetch("../../data/photographers.json");
         // convert json data to js object
