@@ -1,4 +1,6 @@
+@import url("contactForm.css");
 @import url("photographer.css");
+
 
 :root {
     --font-default: "DM Sans", sans-serif;

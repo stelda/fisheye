@@ -1,3 +1,5 @@
+/* this script is used to display photographers data on index.html page */
+
     async function getPhotographers() {
         // get photographers data from json file
         const response = await fetch("../../data/photographers.json");
