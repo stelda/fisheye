@@ -1,19 +1,7 @@
-/* this script is used to display photographers data on index.html page */
+import {getPhotographers} from "../utils/dataFetcher";
 
-    async function getPhotographers() {
-        // get photographers data from json file
-        const response = await fetch("../../data/photographers.json");
-        // convert json data to js object
-        const data = await response.json();
-        // get photographers array from data object
-        const { photographers } = data;
 
-        // return photographers array
-        return ({
-            photographers: [...photographers]})
-    }
-
-    async function displayData(photographers) {
+async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
@@ -30,4 +18,6 @@
     }
 
     init();
+
+
     
