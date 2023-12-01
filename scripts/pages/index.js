@@ -1,7 +1,24 @@
-import {getPhotographers} from "../utils/dataFetcher";
+import essai from "../../scripts/utils/dataFetcher.js";
 
+essai();
 
-async function displayData(photographers) {
+    export default async function getPhotographers() {
+    // get photographers data from json file
+    const response = await fetch("../../data/photographers.json");
+    // convert json data to js object
+    const data = await response.json();
+    // get photographers array from data object
+    const { photographers } = data;
+    console.log(photographers);
+    // return photographers array
+    return (
+        {
+            photographers: [...photographers]
+        }
+    )
+}
+
+    async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
@@ -18,6 +35,5 @@ async function displayData(photographers) {
     }
 
     init();
-
 
     
