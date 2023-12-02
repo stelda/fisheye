@@ -8,8 +8,12 @@
     margin: 0 100px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+}
+
+.photograph-header .location, .photograph-header .tagline {
+    text-align: left;
 }
 
 .contact_button {
@@ -23,5 +27,12 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.photographer-portrait {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 

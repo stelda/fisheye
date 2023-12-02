@@ -1,10 +1,10 @@
-/* this script is used to display photographers data on index.html page */
+/* This script is used to display photographers data on index.html page */
 function photographerTemplate(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
-
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
+        // Create article
         const article = document.createElement( 'article' );
 
         // Create link to photographer page
@@ -12,6 +12,7 @@ function photographerTemplate(data) {
         link.setAttribute("href", `photographer.html?id=${id}`);
         link.classList.add( 'photographer-card' );
 
+        // Create img, h2, p
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
 

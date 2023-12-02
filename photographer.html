@@ -15,8 +15,8 @@
       <div class="photograph-header">
         <div>
           <h1 class="photographer-name"></h1>
-          <p class="photographer-location"></p>
-          <p class="photographer-tagline"></p>
+          <p class="location"></p>
+          <p class="tagline"></p>
         </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <img class="photographer-portrait" src="" alt="portrait du photographe"/>
@@ -25,9 +25,11 @@
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
+          <div>
+            <h2>Contactez-moi</h2>
+            <h2 class="photographer-name"></h2>
+          </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="icône de fermeture"/>
-          <h2 class="photographer-name"></h2>
         </header>
 
         <form name="reserve" action="index.html" method="get" novalidate >
@@ -59,15 +61,13 @@
             </div>
             <textarea id="message" name="message" rows="4"></textarea>
           </div>
-
           <button class="contact_button">Envoyer</button>
-
         </form>
-
       </div>
     </div>
 
-    <script src="scripts/templates/photographerCard.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/modalHandler.js"></script>
+
   </body>
 </html>

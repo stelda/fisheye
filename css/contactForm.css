@@ -15,6 +15,11 @@
     width: 100%;
 }
 
+.modal header div {
+    display: flex;
+    flex-direction: column;
+}
+
 .modal header img {
     cursor: pointer;
 }
@@ -22,7 +27,8 @@
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+
+    margin: 0;
 }
 
 form {
@@ -42,7 +48,7 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    /*margin-bottom: 26px;*/
 }
 
 form input {
@@ -50,4 +56,16 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
 }
