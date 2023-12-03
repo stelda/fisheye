@@ -1,6 +1,10 @@
+import displayPhotographerDetails from "../../scripts/templates/photographerDetails.js"
 import getPhotographers from "../../scripts/utils/dataFetcher.js";
 
-async function getPhotographerDetails() {
+
+async function selectPhotographerWithId() {
+
+    console.log("selectPhotographerWithId");
     // Extract photographer ID from URL parameters
     const urlSearchParams = new URLSearchParams(window.location.search);
     const id = urlSearchParams.get("id");
@@ -20,26 +24,10 @@ async function getPhotographerDetails() {
         console.error(`Photographer not found with ID: ${id}`);
         return;
     }
-
-    // Display photographer name on page and contact-form
-    const photographerNameElements = document.querySelectorAll(".photographer-name");
-    photographerNameElements.forEach((element) => {
-        element.textContent = selectedPhotographer.name;
-    });
-
-    const picture = `assets/photographers/${selectedPhotographer.portrait}`;
-
-    const img = document.querySelector( ".photographer-portrait");
-    img.setAttribute("src", picture);
-
-    const location = document.querySelector( ".location");
-    location.textContent = `${selectedPhotographer.city}, ${selectedPhotographer.country}`;
-
-    const tagline = document.querySelector( ".tagline");
-    tagline.textContent = selectedPhotographer.tagline;
-
+    // Display photographer details on page
+displayPhotographerDetails(selectedPhotographer);
 }
 
 // Call the init function
-getPhotographerDetails();
+selectPhotographerWithId();
 
