@@ -1,4 +1,4 @@
-import getPhotographers from "../../scripts/utils/dataFetcher.js";
+import {getPhotographers} from "../../scripts/utils/dataFetcher.js";
 import displayPhotographerDetails from "../../scripts/templates/photographerDetails.js"
 
 async function selectPhotographerWithId() {
@@ -26,6 +26,5 @@ async function selectPhotographerWithId() {
 displayPhotographerDetails(selectedPhotographer);
 }
 
-// Call the init function
 selectPhotographerWithId();
 

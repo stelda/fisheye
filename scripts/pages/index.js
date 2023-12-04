@@ -1,4 +1,4 @@
-import getPhotographers from "../../scripts/utils/dataFetcher.js";
+import {getPhotographers} from "../../scripts/utils/dataFetcher.js";
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
