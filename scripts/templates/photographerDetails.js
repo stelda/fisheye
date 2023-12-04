@@ -1,6 +1,6 @@
 export default function displayPhotographerDetails(selectedPhotographer) {
 
-    // Display photographer name on page and contact-form
+    // name on page and contact-form
     const photographerNameElements = document.querySelectorAll(".photographer-name");
     photographerNameElements.forEach((element) => {
         element.textContent = selectedPhotographer.name;

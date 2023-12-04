@@ -1,10 +1,8 @@
-import displayPhotographerDetails from "../../scripts/templates/photographerDetails.js"
 import getPhotographers from "../../scripts/utils/dataFetcher.js";
-
+import displayPhotographerDetails from "../../scripts/templates/photographerDetails.js"
 
 async function selectPhotographerWithId() {
 
-    console.log("selectPhotographerWithId");
     // Extract photographer ID from URL parameters
     const urlSearchParams = new URLSearchParams(window.location.search);
     const id = urlSearchParams.get("id");
