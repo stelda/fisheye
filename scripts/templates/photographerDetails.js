@@ -8,7 +8,7 @@ export default function displayPhotographerDetails(selectedPhotographer) {
 
     // picture
     const picture = `assets/photographers/${selectedPhotographer.portrait}`;
-        const img = document.querySelector( ".photographer-portrait");
+    const img = document.querySelector( ".photographer-portrait");
     img.setAttribute("src", picture);
 
     // location
