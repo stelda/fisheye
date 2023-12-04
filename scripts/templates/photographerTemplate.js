@@ -30,11 +30,7 @@ function photographerTemplate(data) {
         const priceElement = createParagraph(`${price}€/jour`, 'price');
 
         article.appendChild(link);
-        link.appendChild(img);
-        link.appendChild(h2);
-        link.appendChild(location);
-        link.appendChild(taglineElement);
-        link.appendChild(priceElement);
+        link.append(img, h2, location, taglineElement, priceElement);
 
         return (article);
     }
