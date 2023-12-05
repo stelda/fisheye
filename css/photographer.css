@@ -36,3 +36,23 @@
     object-fit: cover;
 }
 
+#like-and-price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 190px;
+    height: 35px;
+
+    background-color: #DB8876;
+    border-radius: 5px 5px 0 0;
+}
+
+#like-and-price-box .price {
+    color: black;
+    font-size: 18px;
+}
+

@@ -34,5 +34,7 @@ function photographerTemplate(data) {
 
         return (article);
     }
+
+
     return { getUserCardDOM }
 }
