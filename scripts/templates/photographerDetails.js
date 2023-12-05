@@ -1,4 +1,4 @@
-export default function displayPhotographerDetails(selectedPhotographer) {
+export function displayPhotographerDetails(selectedPhotographer) {
 
     // name on page and contact-form
     const photographerNameElements = document.querySelectorAll(".photographer-name");
@@ -18,4 +18,21 @@ export default function displayPhotographerDetails(selectedPhotographer) {
     // tagline
     const tagline = document.querySelector( ".tagline");
     tagline.textContent = selectedPhotographer.tagline;
+
+    // price
+    const price = document.querySelector( ".price");
+    price.textContent = `${selectedPhotographer.price}€/jour`;
+}
+
+export function displayPhotographerPortfolio(selectedPhotographer) {
+    const portfolio = document.querySelector( ".portfolio-articles");
+    portfolio.innerHTML = "hello";
+    console.log(selectedPhotographer);
+    console.log(portfolio);
+    // const mediaFactory = new MediaFactory();
+    //
+    // selectedPhotographer.media.forEach((media) => {
+    //     const mediaElement = mediaFactory.createMediaElement(media.image);
+    //     portfolio.appendChild(mediaElement);
+    // });
 }
