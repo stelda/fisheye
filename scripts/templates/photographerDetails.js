@@ -1,3 +1,4 @@
+import { MediaFactory } from "../../scripts/factories/mediaFactory.js";
 export function displayPhotographerDetails(selectedPhotographer) {
 
     // name on page and contact-form
@@ -24,15 +25,15 @@ export function displayPhotographerDetails(selectedPhotographer) {
     price.textContent = `${selectedPhotographer.price}€/jour`;
 }
 
-export function displayPhotographerPortfolio(selectedPhotographer) {
+export function displayPhotographerPortfolio(selectedPortfolio) {
     const portfolio = document.querySelector( ".portfolio-articles");
-    portfolio.innerHTML = "hello";
-    console.log(selectedPhotographer);
-    console.log(portfolio);
-    // const mediaFactory = new MediaFactory();
-    //
-    // selectedPhotographer.media.forEach((media) => {
-    //     const mediaElement = mediaFactory.createMediaElement(media.image);
-    //     portfolio.appendChild(mediaElement);
-    // });
+
+    console.log(selectedPortfolio);
+
+    selectedPortfolio.forEach((media) => {
+        console.log(media);
+        const mediaElement = media.createMediaElement(media);
+
+        //MediaFactory.createMediaElement(media);
+    });
 }

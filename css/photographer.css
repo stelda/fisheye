@@ -56,3 +56,11 @@
     font-size: 18px;
 }
 
+.portfolio-articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
