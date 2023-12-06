@@ -99,7 +99,7 @@ h1 {
     line-height: normal;
 }
 
-.price {
+.photographer_section .price {
     color: #757575;
     text-align: center;
     font-family: var(--font-default);

@@ -29,20 +29,26 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
     const portfolio = document.querySelector( ".portfolio-articles");
 
     selectedPortfolio.forEach((media) => {
-        if (media.image) {
-            const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image, media.likes, media.date, media.price);
-            const img = mediaFactory.createImageElement(media.image);
-            portfolio.appendChild(img);
-        }
-        else if (media.video) {
-            const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.video, media.likes, media.date, media.price);
-            const video = mediaFactory.createVideoElement(media.video);
+        const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
+
+        if (media.image !== undefined) {
+            const image = mediaFactory.createImageElement(media.image, media.title, media.likes);
+            portfolio.appendChild(image);
+        } else if (media.video !== undefined) {
+            const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
             portfolio.appendChild(video);
         }
-        else {
-            console.log("Error: no image or video found");
-        }
-        console.log(media);
-    }
-    );
+
+    });
+
+    /**
+     * Array.prototype.reduce()
+     * link to documentation : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+     */
+    const likes = document.querySelector("#like-counter");
+    const totalLikes = selectedPortfolio.reduce((accumulator, media) => accumulator + media.likes, 0);
+    likes.textContent = totalLikes;
+
+
 }
+
