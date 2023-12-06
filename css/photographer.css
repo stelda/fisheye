@@ -58,9 +58,16 @@
 
 .portfolio-articles {
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    gap: 20px;
+    margin: 100px;
+
+}
+
+.portfolio-articles :nth-child(n) {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
