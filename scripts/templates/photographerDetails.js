@@ -1,4 +1,4 @@
-import { MediaFactory } from "../../scripts/factories/mediaFactory.js";
+import MediaFactory from "../../scripts/factories/mediaFactory.js";
 export function displayPhotographerDetails(selectedPhotographer) {
 
     // name on page and contact-form
@@ -28,12 +28,21 @@ export function displayPhotographerDetails(selectedPhotographer) {
 export function displayPhotographerPortfolio(selectedPortfolio) {
     const portfolio = document.querySelector( ".portfolio-articles");
 
-    console.log(selectedPortfolio);
-
     selectedPortfolio.forEach((media) => {
+        if (media.image) {
+            const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image, media.likes, media.date, media.price);
+            const img = mediaFactory.createImageElement(media.image);
+            portfolio.appendChild(img);
+        }
+        else if (media.video) {
+            const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.video, media.likes, media.date, media.price);
+            const video = mediaFactory.createVideoElement(media.video);
+            portfolio.appendChild(video);
+        }
+        else {
+            console.log("Error: no image or video found");
+        }
         console.log(media);
-        const mediaElement = media.createMediaElement(media);
-
-        //MediaFactory.createMediaElement(media);
-    });
+    }
+    );
 }

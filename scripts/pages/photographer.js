@@ -1,6 +1,7 @@
 import {getPhotographers, getMedia} from "../utils/dataFetcher.js";
 import {displayPhotographerDetails, displayPhotographerPortfolio} from "../templates/photographerDetails.js"
 
+
 async function selectPhotographerWithId() {
 
     // Extract photographer ID from URL parameters
