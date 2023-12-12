@@ -79,10 +79,6 @@ figcaption {
     margin-top: 10px;
 }
 
-figcaption .liked {
-    color: var(--color-secondary);
-}
-
 /*==== contact modal ====*/
 #contact_modal {
     display: none;

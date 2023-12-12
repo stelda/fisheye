@@ -8,8 +8,7 @@
         this.likes = likes;
         this.date = date;
         this.price = price;
-        // this.totalLikes = document.querySelector("#like-counter");
-        // this.liked = false;
+        this.liked = false;
     }
 
     createMediaElement(file, title, likes, isImage) {
@@ -35,15 +34,42 @@
         figcaption.appendChild(titleElement);
 
         const likesElement = document.createElement('span');
-        likesElement.textContent = `${likes} `;
+        const likesCountElement = document.createElement('span');
+        likesCountElement.textContent = `${likes} `;
+
         const heart = document.createElement('i');
         heart.classList.add('fas', 'fa-heart');
 
+        likesElement.appendChild(likesCountElement);
         likesElement.appendChild(heart);
         figcaption.appendChild(likesElement);
+
+        heart.addEventListener('click', () => {
+            if (this.liked) {
+                likes--;
+                console.log(likes);
+                likesCountElement.textContent = `${likes} `;
+                heart.style.color = 'black';
+                this.liked = false;
+                this.totalLikes = document.querySelector("#like-counter");
+                this.totalLikes.textContent = parseInt(this.totalLikes.textContent) - 1;
+
+            }
+            else {
+                likes++;
+                console.log(likes);
+                likesCountElement.textContent = `${likes} `;
+                heart.style.color = 'red';
+                this.liked = true;
+                this.totalLikes = document.querySelector("#like-counter");
+                this.totalLikes.textContent = parseInt(this.totalLikes.textContent) + 1;
+            }
+
+
+
+        });
         return figcaption;
     }
-
 
     createImageElement(file, title, likes) {
         return this.createMediaElement(file, title, likes, true);
