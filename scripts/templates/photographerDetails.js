@@ -1,4 +1,4 @@
-import MediaFactory from "../../scripts/factories/mediaFactory.js";
+import MediaFactory from "../factories/mediaFactory.js";
 export function displayPhotographerDetails(selectedPhotographer) {
 
     // name on page and contact-form
@@ -31,10 +31,10 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
     selectedPortfolio.forEach((media) => {
         const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
 
-        if (media.image !== undefined) {
+        if (media.image) {
             const image = mediaFactory.createImageElement(media.image, media.title, media.likes);
             portfolio.appendChild(image);
-        } else if (media.video !== undefined) {
+        } else if (media.video) {
             const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
             portfolio.appendChild(video);
         }
@@ -45,10 +45,7 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
      * Array.prototype.reduce()
      * link to documentation : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
      */
-    const likes = document.querySelector("#like-counter");
-    const totalLikes = selectedPortfolio.reduce((accumulator, media) => accumulator + media.likes, 0);
-    likes.textContent = totalLikes;
-
-
+    const totalLikes = document.querySelector("#like-counter");
+    totalLikes.textContent = selectedPortfolio.reduce((accumulator, media) => accumulator + media.likes, 0);
 }
 
