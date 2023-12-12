@@ -1,18 +1,21 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
+    min-width: 280px;
+    max-width: 670px;
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    padding: 50px;
     margin: auto;
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: auto;
 }
 
 .modal header div {
@@ -27,7 +30,6 @@
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-
     margin: 0;
 }
 
@@ -58,14 +60,49 @@ form input {
     border-radius: 5px;
 }
 
-.background {
+form textarea {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+#contact_modal {
     display: none;
     position: fixed;
     z-index: 1;
     left: 0;
-    top: 0;
+    top: 80px;
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
+    background-color: rgba(196, 196, 196, 0.4);
+    margin-top: -90px;
+    padding-top: 50px;
+}
+
+@media (max-width: 768px) {
+
+    .modal header {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .modal header h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    form label {
+        font-size: 24px;
+    }
+
+    form input {
+        height: 50px;
+    }
+
+    form textarea {
+        height: 100px;
+    }
 }
