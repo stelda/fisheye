@@ -1,4 +1,6 @@
 import MediaFactory from "../factories/mediaFactory.js";
+import gallerySorter from "../utils/gallerySorter.js";
+
 export function displayPhotographerDetails(selectedPhotographer) {
 
     // name on page and contact-form
@@ -28,6 +30,17 @@ export function displayPhotographerDetails(selectedPhotographer) {
 export function displayPhotographerPortfolio(selectedPortfolio) {
     const portfolio = document.querySelector( ".portfolio-articles");
 
+    // sort the portfolio
+    const sort = document.getElementById('sort');
+
+    sort.addEventListener('change', (event) => {
+        selectedPortfolio = gallerySorter(selectedPortfolio, event.target.value);
+        console.log(event.target.value);
+        document.querySelector('.portfolio-articles').innerHTML = ''; // clear out the current portfolio
+        displayPhotographerPortfolio(selectedPortfolio);  // re-display the sorted portfolio
+    });
+
+    // display the portfolio
     selectedPortfolio.forEach((media) => {
         const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
 
@@ -38,7 +51,6 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
             const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
             portfolio.appendChild(video);
         }
-
     });
 
     /**

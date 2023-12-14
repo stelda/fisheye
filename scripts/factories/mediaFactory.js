@@ -21,7 +21,6 @@
         media.setAttribute('src', mediaPath);
         link.appendChild(media);
         figure.appendChild(link);
-
         figure.appendChild(this.createFigcaption(title, likes));
         return figure;
     }
@@ -45,29 +44,14 @@
         figcaption.appendChild(likesElement);
 
         heart.addEventListener('click', () => {
-            if (this.liked) {
-                likes--;
-                console.log(likes);
-                likesCountElement.textContent = `${likes} `;
-                heart.style.color = 'black';
-                this.liked = false;
-                this.totalLikes = document.querySelector("#like-counter");
-                this.totalLikes.textContent = parseInt(this.totalLikes.textContent) - 1;
-
-            }
-            else {
-                likes++;
-                console.log(likes);
-                likesCountElement.textContent = `${likes} `;
-                heart.style.color = 'red';
-                this.liked = true;
-                this.totalLikes = document.querySelector("#like-counter");
-                this.totalLikes.textContent = parseInt(this.totalLikes.textContent) + 1;
-            }
-
-
-
+            this.liked = !this.liked;
+            likes = this.liked ? likes + 1 : likes - 1;
+            likesCountElement.textContent = `${likes} `;
+            heart.style.color = this.liked ? 'var(--color-secondary)' : 'var(--color-primary)';
+            this.totalLikes = document.querySelector("#like-counter");
+            this.totalLikes.textContent = parseInt(this.totalLikes.textContent) + (this.liked ? 1 : -1);
         });
+
         return figcaption;
     }
 

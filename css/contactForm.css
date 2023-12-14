@@ -1,6 +1,6 @@
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: var(--color-secondary);
     min-width: 280px;
     max-width: 670px;
     width: 50%;
