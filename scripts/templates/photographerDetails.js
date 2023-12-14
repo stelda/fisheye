@@ -32,7 +32,7 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
 
     // sort the portfolio
     const sort = document.getElementById('sort');
-
+    selectedPortfolio = gallerySorter(selectedPortfolio, "popular"); // default sort is "popular"
     sort.addEventListener('change', (event) => {
         selectedPortfolio = gallerySorter(selectedPortfolio, event.target.value);
         console.log(event.target.value);
