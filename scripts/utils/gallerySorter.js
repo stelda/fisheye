@@ -1,6 +1,6 @@
 export default function gallerySorter(selectedPortfolio, sortCriteria) {
     switch (sortCriteria) {
-        case "popular":
+        case "likes":
             selectedPortfolio.sort((a, b) => {
                 if (a.likes < b.likes) {
                     return 1;
