@@ -36,5 +36,3 @@ export default function gallerySorter(selectedPortfolio, sortCriteria) {
     }
     return selectedPortfolio;
 }
-
-

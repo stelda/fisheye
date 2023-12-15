@@ -28,31 +28,32 @@ export function displayPhotographerDetails(selectedPhotographer) {
 }
 
 export function displayPhotographerPortfolio(selectedPortfolio) {
-    const portfolio = document.querySelector( ".portfolio-articles");
+    selectedPortfolio = gallerySorter(selectedPortfolio, "likes"); // sort by likes by default
+    displayMedia(selectedPortfolio);  // display the portfolio
 
     // sort the portfolio
     const sort = document.getElementById('sort');
-    selectedPortfolio = gallerySorter(selectedPortfolio, "popular"); // default sort is "popular"
     sort.addEventListener('change', (event) => {
-        selectedPortfolio = gallerySorter(selectedPortfolio, event.target.value);
+        const sortedPortfolio = gallerySorter(selectedPortfolio, event.target.value);
         console.log(event.target.value);
         document.querySelector('.portfolio-articles').innerHTML = ''; // clear out the current portfolio
-        displayPhotographerPortfolio(selectedPortfolio);  // re-display the sorted portfolio
+        displayMedia(sortedPortfolio);  // re-display the sorted portfolio
     });
 
-    // display the portfolio
-    selectedPortfolio.forEach((media) => {
-        const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
-
-        if (media.image) {
-            const image = mediaFactory.createImageElement(media.image, media.title, media.likes);
-            portfolio.appendChild(image);
-        } else if (media.video) {
-            const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
-            portfolio.appendChild(video);
-        }
-        console.log("date" + media.date + "titre :" + media.title + "likes :" + media.likes); // for debugging
-    });
+    function displayMedia(mediaArray) {
+        const portfolio = document.querySelector( ".portfolio-articles");
+        mediaArray.forEach((media) => {
+            const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
+            if (media.image) {
+                const image = mediaFactory.createImageElement(media.image, media.title, media.likes);
+                portfolio.appendChild(image);
+            } else if (media.video) {
+                const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
+                portfolio.appendChild(video);
+            }
+            console.log("date" + media.date + "titre :" + media.title + "likes :" + media.likes); // for debugging
+        });
+    }
 
     /**
      * Array.prototype.reduce()
