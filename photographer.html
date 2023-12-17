@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo"/>
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -49,21 +49,21 @@
           <div>
             <label for="first">Prénom</label>
             <br>
-            <input class="text-control" type="text" id="first" name="first" minlength="2" />
+            <input class="text-control" type="text" id="first" name="first" minlength="2" aria-label="Veuillez saisir votre prénom" />
             <br>
           </div>
 
           <div>
             <label for="last">Nom</label>
             <br>
-            <input class="text-control" type="text" id="last" name="last"/>
+            <input class="text-control" type="text" id="last" name="last" aria-label="Veuillez saisir votre nom"/>
             <br>
           </div>
 
           <div>
             <label for="email">E-mail</label>
             <br>
-            <input class="text-control" type="email" id="email" name="email"/>
+            <input class="text-control" type="email" id="email" name="email" aria-label="Veuillez saisir votre adresse email"/>
             <br>
           </div>
 
@@ -72,12 +72,14 @@
                 <label for="message" class="contact-label">Message</label>
                 <div class="underline"></div>
             </div>
-            <textarea id="message" name="message" rows="4"></textarea>
+            <textarea id="message" name="message" rows="4" aria-label="Veuillez entrer votre message"></textarea>
           </div>
+
           <button class="contact_button">Envoyer</button>
         </form>
       </div>
     </div>
+
     <div id="like-and-price-box">
       <div>
         <span id="like-counter"></span>

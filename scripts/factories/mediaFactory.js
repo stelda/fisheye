@@ -19,6 +19,7 @@
 
         const media = isImage ? document.createElement('img') : document.createElement('video');
         media.setAttribute('src', mediaPath);
+        media.setAttribute('alt', `photographie intitulée ${title}`);
         link.appendChild(media);
         figure.appendChild(link);
         figure.appendChild(this.createFigcaption(title, likes));

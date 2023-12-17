@@ -14,6 +14,7 @@ function photographerTemplate(data) {
         // Create img, h2, p
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
+        img.setAttribute("alt", `portrait de ${name}`);
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
