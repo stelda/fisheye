@@ -118,5 +118,81 @@ figcaption {
     color: white;
 }
 
+/*==== lightbox ====*/
+
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    justify-content: center;
+}
+
+.previous, .next {
+    position: absolute;
+    top: 525px;
+    color: var(--color-primary);
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.previous {
+    left: 10%;
+}
+
+.next {
+    right: 10%;
+}
+
+.lightbox-close {
+    color: var(--color-primary);
+    font-size: 3em;
+    position: absolute;
+    top: 120px;
+    right: 10%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    width: 1050px;
+    height: 800px;
+}
+
+.lightbox-media img, .lightbox-media video{
+    object-fit: cover;
+    width: 1050px;
+    height: 750px;
+    box-sizing: border-box;
+}
+
+.lightbox-title {
+    color: var(--color-primary);
+    font-family: var(--font-default);
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.lightbox-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 

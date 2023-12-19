@@ -14,15 +14,38 @@
     createMediaElement(file, title, likes, isImage) {
         const mediaPath = `assets/media/${this.photographerId}/${file}`;
         const figure = document.createElement('figure');
-        const link = document.createElement('a');
-        link.setAttribute('href', mediaPath);
 
         const media = isImage ? document.createElement('img') : document.createElement('video');
         media.setAttribute('src', mediaPath);
-        media.setAttribute('alt', `photographie intitulée ${title}`);
-        link.appendChild(media);
-        figure.appendChild(link);
+        media.setAttribute('alt', `media intitulé ${title}`);
+        media.setAttribute('class', 'item');
+        media.setAttribute('tabindex', '0');
+
+        figure.appendChild(media);
         figure.appendChild(this.createFigcaption(title, likes));
+
+        media.addEventListener('click', () => {
+            const lightbox = document.querySelector('#lightbox');
+            lightbox.style.display = "flex";
+
+            const lightboxMedia = document.querySelector('.lightbox-media');
+            lightboxMedia.innerHTML = "";
+            lightboxMedia.appendChild(isImage ? document.createElement('img') : document.createElement('video'));
+            lightboxMedia.firstChild.setAttribute('src', mediaPath);
+
+            if (!isImage) {
+                lightboxMedia.firstChild.setAttribute('controls', 'controls');
+                lightboxMedia.firstChild.setAttribute('autoplay', 'autoplay');
+            }
+
+            const lightboxTitle = document.querySelector('.lightbox-title');
+            lightboxTitle.textContent = title;
+
+            const lightboxClose = document.querySelector('.lightbox-close');
+            lightboxClose.addEventListener('click', () => {
+                lightbox.style.display = "none";
+            });
+        });
         return figure;
     }
 
@@ -56,6 +79,7 @@
         return figcaption;
     }
 
+
     createImageElement(file, title, likes) {
         return this.createMediaElement(file, title, likes, true);
     }
@@ -63,6 +87,4 @@
     createVideoElement(file, title, likes) {
         return this.createMediaElement(file, title, likes, false);
     }
-
-
 }
