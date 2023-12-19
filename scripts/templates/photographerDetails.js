@@ -33,7 +33,16 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
 
     // sort the portfolio
     const sort = document.getElementById('sort');
+    let selectedOption = sort.options[0]; // default option
+    selectedOption.style.display = "none"; // hide the default option from dropdown list
+
     sort.addEventListener('change', (event) => {
+        if (selectedOption) {
+            selectedOption.style.display = "block";
+        }
+        selectedOption = sort.options[sort.selectedIndex];
+        selectedOption.style.display = "none";
+
         const sortedPortfolio = gallerySorter(selectedPortfolio, event.target.value);
         console.log(event.target.value);
         document.querySelector('.portfolio-articles').innerHTML = ''; // clear out the current portfolio
