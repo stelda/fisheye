@@ -133,7 +133,7 @@ figcaption {
     justify-content: center;
 }
 
-.previous, .next {
+.lightbox-previous, .lightbox-next {
     position: absolute;
     top: 525px;
     color: var(--color-primary);
@@ -141,11 +141,11 @@ figcaption {
     cursor: pointer;
 }
 
-.previous {
+.lightbox-previous {
     left: 10%;
 }
 
-.next {
+.lightbox-next {
     right: 10%;
 }
 
