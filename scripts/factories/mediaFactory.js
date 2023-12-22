@@ -26,6 +26,7 @@
 
         // add event listener to open lightbox
         media.addEventListener('click', () => {
+            /*========= open lightbox =========*/
             const lightbox = document.querySelector('#lightbox');
             lightbox.style.display = "flex";
 
@@ -42,11 +43,19 @@
             const lightboxTitle = document.querySelector('.lightbox-title');
             lightboxTitle.textContent = title;
 
+            /*========= close lightbox =========*/
             const lightboxClose = document.querySelector('.lightbox-close');
             lightboxClose.addEventListener('click', () => {
                 lightbox.style.display = "none";
             });
+            //close with escape key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    lightbox.style.display = "none";
+                }
+            });
 
+            /*========= navigation between media =========*/
             const lightboxPrev = document.querySelector('.lightbox-previous');
             const lightboxNext = document.querySelector('.lightbox-next');
 
@@ -95,7 +104,6 @@
             this.totalLikes = document.querySelector("#like-counter");
             this.totalLikes.textContent = parseInt(this.totalLikes.textContent) + (this.liked ? 1 : -1);
         });
-
         return figcaption;
     }
 
