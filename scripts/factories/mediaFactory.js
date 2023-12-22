@@ -24,56 +24,15 @@
         figure.appendChild(media);
         figure.appendChild(this.createFigcaption(title, likes));
 
-        // add event listener to open lightbox
+        // add event listener to open lightbox on click
         media.addEventListener('click', () => {
-            /*========= open lightbox =========*/
-            const lightbox = document.querySelector('#lightbox');
-            lightbox.style.display = "flex";
-
-            const lightboxMedia = document.querySelector('.lightbox-media');
-            lightboxMedia.innerHTML = "";
-            lightboxMedia.appendChild(isImage ? document.createElement('img') : document.createElement('video'));
-            lightboxMedia.firstChild.setAttribute('src', mediaPath);
-
-            if (!isImage) {
-                lightboxMedia.firstChild.setAttribute('controls', 'controls');
-                lightboxMedia.firstChild.setAttribute('autoplay', 'autoplay');
+            this.openLightbox(media, title, isImage, mediaPath);
+        });
+        // add event listener to open lightbox on enter key or spacebar
+        media.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                this.openLightbox(media, title, isImage, mediaPath);
             }
-
-            const lightboxTitle = document.querySelector('.lightbox-title');
-            lightboxTitle.textContent = title;
-
-            /*========= close lightbox =========*/
-            const lightboxClose = document.querySelector('.lightbox-close');
-            lightboxClose.addEventListener('click', () => {
-                lightbox.style.display = "none";
-            });
-            //close with escape key
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    lightbox.style.display = "none";
-                }
-            });
-
-            /*========= navigation between media =========*/
-            const lightboxPrev = document.querySelector('.lightbox-previous');
-            const lightboxNext = document.querySelector('.lightbox-next');
-
-            // retrieve all media of the photographer in the order of the sorted selection
-            const mediaList = document.querySelectorAll('.item');
-            const mediaArray = Array.from(mediaList);
-            const mediaIndex = mediaArray.indexOf(media);
-            const mediaCount = mediaArray.length;
-
-            // add event listener to navigate between media
-            lightboxPrev.addEventListener('click', () => {
-                const previousMedia = mediaIndex === 0 ? mediaArray[mediaCount - 1] : mediaArray[mediaIndex - 1];
-                previousMedia.click();
-            });
-            lightboxNext.addEventListener('click', () => {
-                const nextMedia = mediaIndex === mediaCount - 1 ? mediaArray[0] : mediaArray[mediaIndex + 1];
-                nextMedia.click();
-            });
         });
         return figure;
     }
@@ -113,5 +72,56 @@
 
     createVideoElement(file, title, likes) {
         return this.createMediaElement(file, title, likes, false);
+    }
+
+    openLightbox(media, title, isImage, mediaPath) {
+        /*========= open lightbox =========*/
+        const lightbox = document.querySelector('#lightbox');
+        lightbox.style.display = "flex";
+
+        const lightboxMedia = document.querySelector('.lightbox-media');
+        lightboxMedia.innerHTML = "";
+        lightboxMedia.appendChild(isImage ? document.createElement('img') : document.createElement('video'));
+        lightboxMedia.firstChild.setAttribute('src', mediaPath);
+
+        if (!isImage) {
+            lightboxMedia.firstChild.setAttribute('controls', 'controls');
+            lightboxMedia.firstChild.setAttribute('autoplay', 'autoplay');
+        }
+
+        const lightboxTitle = document.querySelector('.lightbox-title');
+        lightboxTitle.textContent = title;
+
+        /*========= close lightbox =========*/
+        const lightboxClose = document.querySelector('.lightbox-close');
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = "none";
+        });
+        //close with escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                lightbox.style.display = "none";
+            }
+        });
+
+        /*========= navigation between media =========*/
+        const lightboxPrev = document.querySelector('.lightbox-previous');
+        const lightboxNext = document.querySelector('.lightbox-next');
+
+        // retrieve all media of the photographer in the order of the sorted selection
+        const mediaList = document.querySelectorAll('.item');
+        const mediaArray = Array.from(mediaList);
+        const mediaIndex = mediaArray.indexOf(media);
+        const mediaCount = mediaArray.length;
+
+        // add event listener to navigate between media
+        lightboxPrev.addEventListener('click', () => {
+            const previousMedia = mediaIndex === 0 ? mediaArray[mediaCount - 1] : mediaArray[mediaIndex - 1];
+            previousMedia.click();
+        });
+        lightboxNext.addEventListener('click', () => {
+            const nextMedia = mediaIndex === mediaCount - 1 ? mediaArray[0] : mediaArray[mediaIndex + 1];
+            nextMedia.click();
+        });
     }
 }
