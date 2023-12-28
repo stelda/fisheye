@@ -114,14 +114,23 @@
         const mediaIndex = mediaArray.indexOf(media);
         const mediaCount = mediaArray.length;
 
-        // add event listener to navigate between media
+        const previousMedia = mediaIndex === 0 ? mediaArray[mediaCount - 1] : mediaArray[mediaIndex - 1];
+        const nextMedia = mediaIndex === mediaCount - 1 ? mediaArray[0] : mediaArray[mediaIndex + 1];
+        // add event listener to navigate between media with buttons
         lightboxPrev.addEventListener('click', () => {
-            const previousMedia = mediaIndex === 0 ? mediaArray[mediaCount - 1] : mediaArray[mediaIndex - 1];
             previousMedia.click();
         });
         lightboxNext.addEventListener('click', () => {
-            const nextMedia = mediaIndex === mediaCount - 1 ? mediaArray[0] : mediaArray[mediaIndex + 1];
             nextMedia.click();
+        });
+        // add event listener to navigate between media with arrow keys
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                previousMedia.click();
+            }
+            if (event.key === 'ArrowRight') {
+                nextMedia.click();
+            }
         });
     }
 }
