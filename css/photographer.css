@@ -170,7 +170,8 @@ figcaption {
 }
 
 .lightbox-media img, .lightbox-media video{
-    object-fit: cover;
+    object-fit: contain;
+    object-position: left;
     width: 1050px;
     height: 750px;
     box-sizing: border-box;
