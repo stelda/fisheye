@@ -60,7 +60,6 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
                 const video = mediaFactory.createVideoElement(media.video, media.title, media.likes);
                 portfolio.appendChild(video);
             }
-            console.log("date" + media.date + "titre :" + media.title + "likes :" + media.likes); // for debugging
         });
     }
 
