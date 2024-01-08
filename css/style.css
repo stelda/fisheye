@@ -23,8 +23,8 @@ header {
     height: 90px;
 }
 
-h1 {
-    color: var(--color-font);
+.main-title{
+    color: var(--color-primary);
     margin-right: 100px;
 }
 
@@ -86,7 +86,7 @@ h1 {
     font-family: var(--font-default);
     font-size: 13px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
 }
 

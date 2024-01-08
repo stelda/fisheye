@@ -23,6 +23,10 @@
     flex-direction: column;
 }
 
+.modal .photographer-name {
+    color: black;
+}
+
 .modal header img {
     cursor: pointer;
 }
