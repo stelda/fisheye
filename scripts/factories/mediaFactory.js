@@ -30,7 +30,7 @@
         });
         // add event listener to open lightbox on enter key or spacebar
         media.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
+            if (event.key === 'Enter') {
                 this.openLightbox(media, title, isImage, mediaPath);
             }
         });

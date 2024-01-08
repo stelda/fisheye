@@ -37,3 +37,16 @@ async function selectPhotographerWithId() {
 
 selectPhotographerWithId();
 
+function handleKeyEvents(event) {
+    // La touche 'R' pour recharger la page
+    if (event.key === 'r') {
+        location.reload();
+    }
+
+    // La touche 'B' pour revenir en arrière
+    if (event.key === 'b') {
+        history.back();
+    }
+}
+
+document.addEventListener('keydown', handleKeyEvents);
