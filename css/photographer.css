@@ -62,8 +62,6 @@
 }
 
 /*==== portfolio ====*/
-.portfolio-header {
-}
 
 .portfolio-articles {
     display: grid;
@@ -202,4 +200,82 @@ figcaption span:nth-child(1) {
     border: none;
     background-color: transparent;
     align-self: flex-start;
+}
+
+/* media queries for tablet */
+@media screen and (max-width: 1024px) {
+    .photograph-header {
+        margin: 0 50px;
+    }
+
+    .portfolio-articles {
+        margin: 50px;
+    }
+
+    .portfolio-header {
+        margin: 30px 50px;
+    }
+
+    .portfolio-articles {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+}
+
+/* media queries for mobile */
+@media screen and (max-width: 768px) {
+    .photograph-header {
+        margin: 0 20px;
+        height: 200px;
+    }
+
+    .photograph-header .location, .photograph-header .tagline {
+        display: none;
+    }
+
+    .photograph-header .photographer-name {
+        font-size: 30px;
+    }
+
+    .photograph-header .photographer-portrait {
+        height: 150px;
+        width: 150px;
+    }
+
+    .portfolio-articles {
+        margin: 20px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .portfolio-header {
+        margin: 20px;
+    }
+
+    .portfolio-header label {
+        font-size: 16px;
+    }
+
+    .portfolio-header select {
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+    }
+
+    .portfolio-articles {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .lightbox-media img, .lightbox-media video{
+        max-height: 70vh;
+    }
+
+    .lightbox-title {
+        font-size: 20px;
+    }
+
+    .lightbox-previous, .lightbox-next, .lightbox-close {
+        font-size: 2em;
+    }
 }
