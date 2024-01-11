@@ -17,7 +17,11 @@
 
         const media = isImage ? document.createElement('img') : document.createElement('video');
         media.setAttribute('src', mediaPath);
-        media.setAttribute('alt', `media intitulé ${title}`);
+        if (!isImage) {
+            media.setAttribute('aria-label', `Vidéo intitulée ${title} ayant ${likes} likes`);
+        } else {
+            media.setAttribute('alt', `Image intitulée ${title} ayant ${likes} likes`);
+        }
         media.setAttribute('class', 'item');
         media.setAttribute('tabindex', '0');
 
@@ -57,11 +61,17 @@
 
         heart.addEventListener('click', () => {
             this.liked = !this.liked;
-            likes = this.liked ? likes + 1 : likes - 1;
+            this.likes = this.liked ? likes + 1 : likes - 1;
             likesCountElement.textContent = `${likes} `;
             heart.style.color = this.liked ? 'var(--color-secondary)' : 'var(--color-primary)';
             this.totalLikes = document.querySelector("#like-counter");
             this.totalLikes.textContent = parseInt(this.totalLikes.textContent) + (this.liked ? 1 : -1);
+
+            // aria-label updated with the new total number of likes
+            this.totalLikes.setAttribute('aria-label', `Nombre total de likes pour ce photographe: ${this.totalLikes.textContent}`);
+
+            // aria-label updated with the new number of likes for the media if new focus
+            media.setAttribute('aria-label', `Image intitulée ${title} ayant ${this.likes} likes`);
         });
         return figcaption;
     }
@@ -79,11 +89,14 @@
         const lightbox = document.querySelector('#lightbox');
         lightbox.style.display = "flex";
 
+
         const lightboxMedia = document.querySelector('.lightbox-media');
+        lightboxMedia.focus();
         lightboxMedia.innerHTML = "";
         lightboxMedia.appendChild(isImage ? document.createElement('img') : document.createElement('video'));
         lightboxMedia.firstChild.setAttribute('src', mediaPath);
-
+        lightboxMedia.firstChild.setAttribute('aria-label', `vue agrandie de ${title}. Touche échap pour fermer la fenêtre. Flèche gauche ou droite pour naviguer entre les medias.`);
+        lightboxMedia.firstChild.setAttribute('alt', `Image intitulée ${title}`);
         if (!isImage) {
             lightboxMedia.firstChild.setAttribute('controls', 'controls');
             lightboxMedia.firstChild.setAttribute('autoplay', 'autoplay');
@@ -127,9 +140,13 @@
         document.addEventListener('keydown', (event) => {
             if (event.key === 'ArrowLeft') {
                 previousMedia.click();
+                lightboxMedia.firstChild.focus();
+                lightboxMedia.firstChild.setAttribute('aria-label', `vue agrandie de ${previousMedia.firstChild.alt}`);
             }
             if (event.key === 'ArrowRight') {
                 nextMedia.click();
+                lightboxMedia.firstChild.focus();
+                lightboxMedia.firstChild.setAttribute('aria-label', `vue agrandie de ${nextMedia.firstChild.alt}`);
             }
         });
     }

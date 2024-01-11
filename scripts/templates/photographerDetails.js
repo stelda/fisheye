@@ -11,20 +11,21 @@ export function displayPhotographerDetails(selectedPhotographer) {
 
     // picture
     const picture = `assets/photographers/${selectedPhotographer.portrait}`;
-    const img = document.querySelector( ".photographer-portrait");
+    const img = document.querySelector(".photographer-portrait");
     img.setAttribute("src", picture);
 
     // location
-    const location = document.querySelector( ".location");
+    const location = document.querySelector(".location");
     location.textContent = `${selectedPhotographer.city}, ${selectedPhotographer.country}`;
 
     // tagline
-    const tagline = document.querySelector( ".tagline");
+    const tagline = document.querySelector(".tagline");
     tagline.textContent = selectedPhotographer.tagline;
 
     // price
-    const price = document.querySelector( ".price");
+    const price = document.querySelector(".price");
     price.textContent = `${selectedPhotographer.price}€/jour`;
+    price.setAttribute("aria-label", `Tarif de ${selectedPhotographer.name}: ${selectedPhotographer.price}€ par jour`);
 }
 
 export function displayPhotographerPortfolio(selectedPortfolio) {
@@ -69,5 +70,6 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
      */
     const totalLikes = document.querySelector("#like-counter");
     totalLikes.textContent = selectedPortfolio.reduce((accumulator, media) => accumulator + media.likes, 0);
+    totalLikes.setAttribute('aria-label', `Nombre total de likes pour ce photographe: ${totalLikes.textContent}`);
 }
 

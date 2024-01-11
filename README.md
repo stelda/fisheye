@@ -25,7 +25,6 @@ On contact form:
 - `Esc` - close the contact form
 
 On select menu:
-- `Space` or `Enter` - open select menu
 - `ArrowDown` - move focus to the next option
 - `ArrowUp` - move focus to the previous option
 - `Enter` - choose an option

@@ -18,6 +18,7 @@ function photographerTemplate(data) {
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+        h2.setAttribute("aria-label", `Nom du photographe: ${name}`);
 
         function createParagraph(text, className) {
             const paragraph = document.createElement( 'p' );
@@ -27,15 +28,19 @@ function photographerTemplate(data) {
         }
 
         const location = createParagraph(`${city}, ${country}`, 'location');
+        location.setAttribute("aria-label", `Ville : ${city}, Pays : ${country}`);
+
         const taglineElement = createParagraph(tagline, 'tagline');
+        taglineElement.setAttribute("aria-label", `Slogan : ${tagline}`);
+
         const priceElement = createParagraph(`${price}€/jour`, 'price');
+        priceElement.setAttribute("aria-label", `Tarif : ${price}€ par jour`);
 
         article.appendChild(link);
         link.append(img, h2, location, taglineElement, priceElement);
 
         return (article);
     }
-
 
     return { getUserCardDOM }
 }

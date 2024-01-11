@@ -4,7 +4,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye</title>
   </head>
   <body>
     <header>
@@ -12,13 +12,13 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <div>
+        <div tabindex="0">
           <h1 class="photographer-name"></h1>
           <p class="location"></p>
           <p class="tagline"></p>
         </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img class="photographer-portrait" src="" alt="portrait du photographe"/>
+        <img class="photographer-portrait" src="" alt="portrait du photographe" tabindex="0"/>
       </div>
 
       <div class="portfolio">
@@ -39,31 +39,25 @@
         <header>
           <div>
             <h2>Contactez-moi</h2>
-            <h2 class="photographer-name"></h2>
+            <h2 class="photographer-name" tabindex="0"></h2>
           </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="icône de fermeture"/>
         </header>
 
-        <form name="reserve" action="index.html" method="get" novalidate >
+        <form name="reserve" action="index.html" method="get" novalidate tabindex="0">
           <div>
             <label for="first">Prénom</label>
-            <br>
-            <input class="text-control" type="text" id="first" name="first" minlength="2" aria-label="Veuillez saisir votre prénom" />
-            <br>
+            <input class="text-control" type="text" id="first" name="first" minlength="2" aria-label="Veuillez saisir votre prénom" tabindex="1" />
           </div>
 
           <div>
             <label for="last">Nom</label>
-            <br>
-            <input class="text-control" type="text" id="last" name="last" aria-label="Veuillez saisir votre nom"/>
-            <br>
+            <input class="text-control" type="text" id="last" name="last" aria-label="Veuillez saisir votre nom" tabindex="2"/>
           </div>
 
           <div>
             <label for="email">E-mail</label>
-            <br>
-            <input class="text-control" type="email" id="email" name="email" aria-label="Veuillez saisir votre adresse email"/>
-            <br>
+            <input class="text-control" type="email" id="email" name="email" aria-label="Veuillez saisir votre adresse email" tabindex="3"/>
           </div>
 
           <div>
@@ -71,27 +65,29 @@
                 <label for="message" class="contact-label">Message</label>
                 <div class="underline"></div>
             </div>
-            <textarea id="message" name="message" rows="4" aria-label="Veuillez entrer votre message"></textarea>
+            <textarea id="message" name="message" rows="4" aria-label="Veuillez entrer votre message" tabindex="4"></textarea>
           </div>
 
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" tabindex="5">Envoyer</button>
         </form>
       </div>
     </div>
 
-    <div id="lightbox" aria-hidden="true">
-      <a class="fas fa-chevron-left lightbox-previous" role="button" title="previous"></a>
+    <div id="lightbox" tabindex="0">
+      <div class="lightbox-previous" tabindex="2">
+        <a class="fas fa-chevron-left" role="button" title="media précédent"></a>
+      </div>
       <div class="lightbox-content">
-        <div class="lightbox-media"></div>
+        <div class="lightbox-media" tabindex="1"></div>
         <p class="lightbox-title"></p>
       </div>
       <div class="lightbox-controls">
-        <button class="lightbox-close fas fa-times" title="close"></button>
-        <a class="fas fa-chevron-right lightbox-next" role="button" title="next"></a>
+        <button class="lightbox-close fas fa-times" title="close" aria-label="media suivant" tabindex="3"></button>
+        <a class="fas fa-chevron-right lightbox-next" role="button" title="fermer la lightbox" tabindex="4"></a>
       </div>
     </div>
 
-    <div id="like-and-price-box">
+    <div id="like-and-price-box" tabindex="0">
       <div>
         <span id="like-counter"></span>
         <i class="fas fa-heart"></i>
