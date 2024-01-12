@@ -89,17 +89,16 @@
         const lightbox = document.querySelector('#lightbox');
         lightbox.style.display = "flex";
 
-
         const lightboxMedia = document.querySelector('.lightbox-media');
         lightboxMedia.focus();
         lightboxMedia.innerHTML = "";
         lightboxMedia.appendChild(isImage ? document.createElement('img') : document.createElement('video'));
         lightboxMedia.firstChild.setAttribute('src', mediaPath);
-        lightboxMedia.firstChild.setAttribute('aria-label', `vue agrandie de ${title}. Touche échap pour fermer la fenêtre. Flèche gauche ou droite pour naviguer entre les medias.`);
-        lightboxMedia.firstChild.setAttribute('alt', `Image intitulée ${title}`);
+        lightboxMedia.firstChild.setAttribute('alt', `vue agrandie de ${title}. Touche échap pour fermer la fenêtre. Flèche gauche ou droite pour naviguer entre les medias.`);
         if (!isImage) {
             lightboxMedia.firstChild.setAttribute('controls', 'controls');
             lightboxMedia.firstChild.setAttribute('autoplay', 'autoplay');
+            lightboxMedia.firstChild.setAttribute('aria-label', `vue agrandie de ${title}. Touche échap pour fermer la fenêtre. Flèche gauche ou droite pour naviguer entre les medias.`);
         }
 
         const lightboxTitle = document.querySelector('.lightbox-title');
