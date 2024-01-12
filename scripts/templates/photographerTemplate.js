@@ -36,8 +36,13 @@ function photographerTemplate(data) {
         const priceElement = createParagraph(`${price}€/jour`, 'price');
         priceElement.setAttribute("aria-label", `Tarif : ${price}€ par jour`);
 
+        // add photographer-portrait container around img for alternative text styling
+        const photographerPortrait = document.createElement('div');
+        photographerPortrait.classList.add('photographer-portrait-container');
+        photographerPortrait.appendChild(img);
+
         article.appendChild(link);
-        link.append(img, h2, location, taglineElement, priceElement);
+        link.append(photographerPortrait, h2, location, taglineElement, priceElement);
 
         return (article);
     }

@@ -18,7 +18,9 @@
           <p class="tagline"></p>
         </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img class="photographer-portrait" src="" alt="portrait du photographe" tabindex="0"/>
+        <div class="photographer-portrait-container">
+          <img class="photographer-portrait" src="" alt="portrait du photographe" tabindex="0"/>
+        </div>
       </div>
 
       <div class="portfolio">
@@ -73,17 +75,17 @@
       </div>
     </div>
 
-    <div id="lightbox" tabindex="0">
-      <div class="lightbox-previous" tabindex="2">
+    <div id="lightbox">
+      <div class="lightbox-previous">
         <a class="fas fa-chevron-left" role="button" title="media précédent"></a>
       </div>
       <div class="lightbox-content">
-        <div class="lightbox-media" tabindex="1"></div>
+        <div class="lightbox-media" tabindex="0"></div>
         <p class="lightbox-title"></p>
       </div>
       <div class="lightbox-controls">
-        <button class="lightbox-close fas fa-times" title="close" aria-label="media suivant" tabindex="3"></button>
-        <a class="fas fa-chevron-right lightbox-next" role="button" title="fermer la lightbox" tabindex="4"></a>
+        <button class="lightbox-close fas fa-times" title="fermer lightbox"></button>
+        <a class="fas fa-chevron-right lightbox-next" role="button" title="media suivant"></a>
       </div>
     </div>
 
