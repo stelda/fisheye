@@ -8,6 +8,7 @@ function displayModal() {
         }
     }
     )
+
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Tab') {
             event.preventDefault();
@@ -22,7 +23,5 @@ function displayModal() {
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
-
-    // const photographerPortrait = document.querySelector('.photographer-portrait');
-    // photographerPortrait.focus();
+    location.reload();
 }

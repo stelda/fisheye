@@ -31,6 +31,7 @@ async function selectPhotographerWithId() {
 
     // Display photographer details on page
     displayPhotographerDetails(selectedPhotographer);
+
     // Display photographer portfolio on page
     displayPhotographerPortfolio(selectedPortfolio);
 }
@@ -38,13 +39,13 @@ async function selectPhotographerWithId() {
 selectPhotographerWithId();
 
 function handleKeyEvents(event) {
-    // La touche 'R' pour recharger la page
-    if (event.key === 'r') {
+    // Reload the page when 'r' or 'R' is pressed
+    if (event.key === 'r' || event.key === 'R') {
         location.reload();
     }
 
-    // La touche 'B' pour revenir en arrière
-    if (event.key === 'b') {
+    // Change the page to the previous page when 'b' or 'B' is pressed
+    if (event.key === 'b' || event.key === 'B') {
         history.back();
     }
 }
