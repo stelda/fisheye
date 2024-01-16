@@ -18,9 +18,9 @@
         const media = isImage ? document.createElement('img') : document.createElement('video');
         media.setAttribute('src', mediaPath);
         if (!isImage) {
-            media.setAttribute('aria-label', `Vidéo intitulée ${title} ayant ${likes} likes`);
+            media.setAttribute('aria-label', `Vidéo intitulée ${title}`);
         } else {
-            media.setAttribute('alt', `Image intitulée ${title} ayant ${likes} likes`);
+            media.setAttribute('alt', `Image intitulée ${title}`) ;
         }
         media.setAttribute('class', 'item');
         media.setAttribute('tabindex', '0');
@@ -70,17 +70,6 @@
             // aria-label updated with the new total number of likes
             this.totalLikes.setAttribute('aria-label', `Nombre total de likes pour ce photographe: ${this.totalLikes.textContent}`);
         });
-
-        // Update the aria-label outside of the event listener
-        const updateAriaLabel = () => {
-            alert(likes);
-            const media = document.querySelector('.item');
-            media.setAttribute('aria-label', `Média intitulé ${title} ayant ${likes} likes`);
-            alert(media.getAttribute('aria-label'));
-        };
-
-        // Attach the updateAriaLabel function to the click event
-        heart.addEventListener('click', updateAriaLabel);
 
         return figcaption;
 
