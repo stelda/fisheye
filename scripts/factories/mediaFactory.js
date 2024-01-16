@@ -59,7 +59,7 @@
         likesElement.appendChild(heart);
         figcaption.appendChild(likesElement);
 
-        heart.addEventListener('click', function () {
+        heart.addEventListener('click', () => {
             this.liked = !this.liked;
             likes = this.liked ? likes + 1 : likes - 1;
             likesCountElement.textContent = `${likes} `;
@@ -69,27 +69,21 @@
 
             // aria-label updated with the new total number of likes
             this.totalLikes.setAttribute('aria-label', `Nombre total de likes pour ce photographe: ${this.totalLikes.textContent}`);
-
-            // aria-label updated with the new number of likes for the media if new focus
-            alert(likes);
-            const media = document.querySelector('.item');
-
-            if (!media.getAttribute('alt')) {
-                // remove aria-label for video
-                media.removeAttribute('aria-label');
-                media.setAttribute('aria-label', `Vidéo intitulée ${title} ayant ${likes} likes`);
-            } else {
-                // remove alt for image
-                media.removeAttribute('alt');
-                media.setAttribute('alt', `Image intitulée ${title} ayant ${likes} likes`);
-            }
-
-            alert(media.getAttribute('aria-label'));
         });
 
+        // Update the aria-label outside of the event listener
+        const updateAriaLabel = () => {
+            alert(likes);
+            const media = document.querySelector('.item');
+            media.setAttribute('aria-label', `Média intitulé ${title} ayant ${likes} likes`);
+            alert(media.getAttribute('aria-label'));
+        };
 
+        // Attach the updateAriaLabel function to the click event
+        heart.addEventListener('click', updateAriaLabel);
 
         return figcaption;
+
     }
 
     createImageElement(file, title, likes) {
