@@ -1,4 +1,4 @@
-import {getPhotographers, getMedia} from "../utils/dataFetcher.js";
+import {getMedia, getPhotographers} from "../utils/dataFetcher.js";
 import {displayPhotographerDetails, displayPhotographerPortfolio} from "../templates/photographerDetails.js"
 
 async function selectPhotographerWithId() {

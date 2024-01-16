@@ -4,7 +4,7 @@ export async function getPhotographers() {
     // convert json data to js object
     const data = await response.json();
     // get photographers array from data object
-    const { photographers } = data;
+    const {photographers} = data;
     // return photographers array
     return (
         {
@@ -19,7 +19,7 @@ export async function getMedia() {
     // convert json data to js object
     const data = await response.json();
     // get media array from data object
-    const { media } = data;
+    const {media} = data;
     // return media array
     return (
         {

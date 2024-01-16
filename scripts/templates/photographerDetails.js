@@ -51,7 +51,7 @@ export function displayPhotographerPortfolio(selectedPortfolio) {
     });
 
     function displayMedia(mediaArray) {
-        const portfolio = document.querySelector( ".portfolio-articles");
+        const portfolio = document.querySelector(".portfolio-articles");
         mediaArray.forEach((media) => {
             const mediaFactory = new MediaFactory(media.id, media.photographerId, media.title, media.image || media.video, media.likes, media.date, media.price);
             if (media.image) {

@@ -3,10 +3,10 @@ function displayModal() {
     modal.style.display = "block";
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closeModal();
+            if (event.key === 'Escape') {
+                closeModal();
+            }
         }
-    }
     )
 
     document.addEventListener('keydown', function (event) {
@@ -18,7 +18,7 @@ function displayModal() {
             formFields[nextIndex].focus();
         }
     });
-};
+}
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");

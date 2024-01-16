@@ -1,4 +1,4 @@
-    export default class MediaFactory {
+export default class MediaFactory {
     constructor(id, photographerId, title, image, video, likes, date, price) {
         this.id = id;
         this.photographerId = photographerId;
