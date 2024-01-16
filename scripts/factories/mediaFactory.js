@@ -59,9 +59,9 @@
         likesElement.appendChild(heart);
         figcaption.appendChild(likesElement);
 
-        heart.addEventListener('click', () => {
+        heart.addEventListener('click', function () {
             this.liked = !this.liked;
-            this.likes = this.liked ? likes + 1 : likes - 1;
+            likes = this.liked ? likes + 1 : likes - 1;
             likesCountElement.textContent = `${likes} `;
             heart.style.color = this.liked ? 'var(--color-secondary)' : 'var(--color-primary)';
             this.totalLikes = document.querySelector("#like-counter");
@@ -71,8 +71,24 @@
             this.totalLikes.setAttribute('aria-label', `Nombre total de likes pour ce photographe: ${this.totalLikes.textContent}`);
 
             // aria-label updated with the new number of likes for the media if new focus
-            media.setAttribute('aria-label', `Image intitulée ${title} ayant ${this.likes} likes`);
+            alert(likes);
+            const media = document.querySelector('.item');
+
+            if (!media.getAttribute('alt')) {
+                // remove aria-label for video
+                media.removeAttribute('aria-label');
+                media.setAttribute('aria-label', `Vidéo intitulée ${title} ayant ${likes} likes`);
+            } else {
+                // remove alt for image
+                media.removeAttribute('alt');
+                media.setAttribute('alt', `Image intitulée ${title} ayant ${likes} likes`);
+            }
+
+            alert(media.getAttribute('aria-label'));
         });
+
+
+
         return figcaption;
     }
 
