@@ -20,7 +20,7 @@ export default class MediaFactory {
         if (!isImage) {
             media.setAttribute('aria-label', `Vidéo intitulée ${title}`);
         } else {
-            media.setAttribute('alt', `Image intitulée ${title}`) ;
+            media.setAttribute('alt', `Image intitulée ${title}`);
         }
         media.setAttribute('class', 'item');
         media.setAttribute('tabindex', '0');
@@ -122,8 +122,8 @@ export default class MediaFactory {
         // retrieve all media of the photographer in the order of the sorted selection
         const mediaList = document.querySelectorAll('.item');
         const mediaArray = Array.from(mediaList);
-        const mediaIndex = mediaArray.indexOf(media);
-        const mediaCount = mediaArray.length;
+        const mediaIndex = mediaArray.indexOf(media); // 0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9
+        const mediaCount = mediaArray.length; // 10
 
         const previousMedia = mediaIndex === 0 ? mediaArray[mediaCount - 1] : mediaArray[mediaIndex - 1];
         const nextMedia = mediaIndex === mediaCount - 1 ? mediaArray[0] : mediaArray[mediaIndex + 1];

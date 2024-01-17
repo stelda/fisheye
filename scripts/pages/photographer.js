@@ -38,16 +38,16 @@ async function selectPhotographerWithId() {
 
 selectPhotographerWithId();
 
-function handleKeyEvents(event) {
-    // Reload the page when 'r' or 'R' is pressed
-    if (event.key === 'r' || event.key === 'R') {
-        location.reload();
-    }
+// function handleKeyEvents(event) {
+//     // Reload the page when 'r' or 'R' is pressed
+//     if (event.key === 'r' || event.key === 'R') {
+//         location.reload();
+//     }
+//
+//     // Change the page to the previous page when 'b' or 'B' is pressed
+//     if (event.key === 'b' || event.key === 'B') {
+//         history.back();
+//     }
+// }
 
-    // Change the page to the previous page when 'b' or 'B' is pressed
-    if (event.key === 'b' || event.key === 'B') {
-        history.back();
-    }
-}
-
-document.addEventListener('keydown', handleKeyEvents);
+// document.addEventListener('keydown', handleKeyEvents);
